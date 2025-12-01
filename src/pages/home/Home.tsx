@@ -1,7 +1,4 @@
 import Sobre from "../../components/sobre/Sobre";
-import bgsobre from "../../assets/bg-sobre.jpeg"; // → 
-
-
 function Home() {
 	return (
 		<>
