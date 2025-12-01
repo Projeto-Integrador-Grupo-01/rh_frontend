@@ -11,6 +11,7 @@ import FormColaborador from "./components/colaboradores/formcolaborador/FormCola
 import DeletarColaborador from "./components/colaboradores/deletarcolaboradores/DeletarColaborador"
 import RotaDetalhesColaborador from "./components/colaboradores/detalhescolaborador/RotaDetalhesColaborador"
 import Sobre from "./components/sobre/Sobre"
+import Calculo from "./components/calculo/Calculo"
 
 type MenuState = 'closed' | 'open';
 
@@ -48,6 +49,7 @@ function App() {
               <Route path="/cadcolaborador" element={<FormColaborador />} />
               <Route path="/editarcolaborador/:id" element={<FormColaborador />} />
               <Route path="/deletarcolaborador/:id" element={<DeletarColaborador />} />
+              <Route path="/calcularsalario/:id" element={<Calculo />} />
               <Route path="/sobre" element={<Sobre />} />
 
             </Routes>

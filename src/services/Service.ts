@@ -1,9 +1,9 @@
 ﻿import axios from "axios"
 
 export const api = axios.create({
-    //baseURL: "https://lojagames-3nay.onrender.com"
-    //baseURL: "https://lojagames-moom.onrender.com"
-    baseURL: "http://localhost:8080"
+  
+    //baseURL: "http://localhost:8080"
+    baseURL: "https://rh-backend-s680.onrender.com"
   })
   
   export const listar = async(url: string, setDados: Function) => {
