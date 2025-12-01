@@ -10,7 +10,7 @@ import ListarColaboradores from "./components/colaboradores/listarcolaboradores/
 import FormColaborador from "./components/colaboradores/formcolaborador/FormColaborador"
 import DeletarColaborador from "./components/colaboradores/deletarcolaboradores/DeletarColaborador"
 import RotaDetalhesColaborador from "./components/colaboradores/detalhescolaborador/RotaDetalhesColaborador"
-import Calculo from "./components/calculo/Calculo"
+import Sobre from "./components/sobre/Sobre"
 
 type MenuState = 'closed' | 'open';
 
@@ -28,13 +28,13 @@ function App() {
     <>
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
-          
-          <Navbar 
+
+          <Navbar
             menuState={menuState}
             onMenuToggle={toggleMenu}
             onMenuClose={closeMenu}
           />
-          
+
           <div className='flex-1 w-full pt-16 bg-slate-50'>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -48,13 +48,15 @@ function App() {
               <Route path="/cadcolaborador" element={<FormColaborador />} />
               <Route path="/editarcolaborador/:id" element={<FormColaborador />} />
               <Route path="/deletarcolaborador/:id" element={<DeletarColaborador />} />
-              <Route path="/calcularsalario/:id" element={<Calculo />} />
-              
+              <Route path="/sobre" element={<Sobre />} />
+
             </Routes>
           </div>
-          
+
+
+
           <Footer />
-          
+
         </div>
       </BrowserRouter>
     </>

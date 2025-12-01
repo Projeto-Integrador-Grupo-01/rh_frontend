@@ -1,73 +1,205 @@
-# React + TypeScript + Vite
+<div align="center">
+  <img width="450" height="1024" alt="logo_rh" src="https://github.com/user-attachments/assets/413c3d6d-eedf-469c-933b-8035fe1b300b"
+ />
+</div>
+<div align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=3000&pause=1000&color=e0a98a&center=true&vCenter=true&width=850&lines=Conecta+RH+–+mais+que+RH,+somos+conexão+humana" alt="Typing SVG" />
+  </a>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+[![React](https://img.shields.io/badge/React-18.2.0-%2361DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-%233178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind](https://img.shields.io/badge/Tailwind-3.3.0-%2306B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## React Compiler
+---
+<div align="left">
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 👥 1. Descrição
 
-## Expanding the ESLint configuration
+O ConectaRH é um projeto integrador voltado à transformação humana e organizacional. Ele une tecnologia, empatia e gestão de pessoas para promover relações de trabalho mais humanas, produtivas e sustentáveis. A proposta é oferecer uma consultoria moderna e acessível em Recursos Humanos, com foco no desenvolvimento de talentos, fortalecimento de equipes e aprimoramento da cultura organizacional.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ 2. Sobre esta API
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+A API foi construída com React e oferece funcionalidades completas para o gerenciamento de colaboradores e departamentos. Ela permite operações de CRUD, associação entre entidades, consumo de recursos, cálculo de salários e uma interface do usuário intuitiva e amigável.
+     
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🔧 2.1. Principais Funcionalidades
+
+1. Consumo de API
+2. Visualização de colaboradores e departamentos
+
+---
+
+
+## 🛠️ 3. Tecnologias utilizadas
+
+| Item                          | Descrição  |
+| ----------------------------- | ---------- |
+| **Biblioteca**                |   React    |
+| **Estilização**               |  Tailwind  |
+| **IDE**                       |  VS Code   |
+|**Gerenciador de Dependências**|    npm     |
+| **Versionamento**             |Git + GitHub|
+
+---
+
+## 🎨 4. Paleta de Cores
+
+````
+/* Cores principais da marca */
+--dark-grey: #373f44 Representa Profissionalismo;    
+--custom-teal: #679398; Representa Confiança;    
+--custom-teal: #e0a98a Representa Acolhimento;    
+--amber-700: #c97240; Representa Energia;    
+````
+---
+## 📁 5. Organização
+
+````
+
+O projeto é organizado da seguinte forma:
+
+/
+├── public/
+│   └── (arquivos públicos da aplicação)
+│
+├── src/
+│   │
+│   ├── assets/
+│   │   └── react.svg
+│   │
+│   ├── components/
+│   │
+│   │   ├── colaboradores/
+│   │   │   ├── cardcolaboradores/
+│   │   │   │   └── CardColaboradores.tsx
+│   │   │   │
+│   │   │   ├── deletarcolaboradores/
+│   │   │   │   ├── DeletarColaborador.tsx
+│   │   │   │   └── deletarcolaboradores.tsx
+│   │   │   │
+│   │   │   ├── detalhescolaborador/
+│   │   │   │   ├── DetalhesColaborador.tsx
+│   │   │   │   └── RotaDetalhesColaborador.tsx
+│   │   │   │
+│   │   │   ├── formcolaborador/
+│   │   │   │   └── FormColaborador.tsx
+│   │   │   │
+│   │   │   ├── listarcolaboradores/
+│   │   │   │   └── ListarColaboradores.tsx
+│   │   │   │
+│   │   │   └── modalcolaboradores/
+│   │   │       └── ModalColaborador.tsx
+│   │
+│   │   ├── departamentos/
+│   │   │   ├── carddepartamentos/
+│   │   │   │   └── CardDepartamentos.tsx
+│   │   │   │
+│   │   │   ├── deletardepartamentos/
+│   │   │   │   ├── DeletarDepartamento.tsx
+│   │   │   │   └── deletardepartamentos.tsx
+│   │   │   │
+│   │   │   ├── formdepartamento/
+│   │   │   │   └── FormDepartamento.tsx
+│   │   │   │
+│   │   │   ├── listardepartamentos/
+│   │   │   │   └── ListarDepartamentos.tsx
+│   │
+│   │   ├── footer/
+│   │   │   └── Footer.tsx
+│   │
+│   │   ├── navbar/
+│   │   │   └── Navbar.tsx
+│   │
+│   ├── models/
+│   │   ├── Colaborador.ts
+│   │   └── Departamento.ts
+│   │
+│   ├── pages/
+│   │   └── home/
+│   │       └── Home.tsx
+│   │
+│   ├── services/
+│   │   └── Service.ts
+│   │
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   │
+│   ├── typescript configs:
+│   │   ├── tsconfig.json
+│   │   ├── tsconfig.app.json
+│   │   └── tsconfig.node.json
+│   │
+│   └── vite.config.ts
+│
+├── index.html
+├── package.json
+├── package-lock.json
+├── eslint.config.js
+├── README.md
+└── .gitignore
+
+
+## 🚀 6. Configuração e Execução
+
+```bash
+1. Clone o repositório:git clone https://github.com/Projeto-Integrador-Grupo-01/rh_backend.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Abra o projeto no VSCode
+3. Execute a aplicação com o npm
+5. Teste os endpoints (localmente) utilizando o comando npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
+<div align="center">
+  
+## 🙌 Equipe
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Desenvolvido por 💚 [Tech Sisters](https://projeto-integrador-grupo-01.github.io/techsisters/) 🍃
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/LemesdeMorais">
+        <img src="https://github.com/LemesdeMorais.png?size=100" width="100" style="border-radius:50%; border:2px solid #00C853;" alt="Rafaela Morais"/>
+        <br/><sub><b>Rafaela Morais</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/alineromanini">
+        <img src="https://github.com/alineromanini.png?size=100" width="100" style="border-radius:50%; border:2px solid #00C853;" alt="Aline Romanini"/>
+        <br/><sub><b>Aline Romanini</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/cdouradom">
+        <img src="https://github.com/cdouradom.png?size=100" width="100" style="border-radius:50%; border:2px solid #00C853;" alt="Cinthia Dourado"/>
+        <br/><sub><b>Cintia Dourado</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/nicollyjesus">
+        <img src="https://github.com/nicollyjesus.png?size=100" width="100" style="border-radius:50%; border:2px solid #00C853;" alt="Nicolly Jesus"/>
+        <br/><sub><b>Nicolly Jesus</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/queren-alves">
+        <img src="https://github.com/queren-alves.png?size=100" width="100" style="border-radius:50%; border:2px solid #00C853;" alt="Quéren Alves"/>
+        <br/><sub><b>Quéren Alves</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
