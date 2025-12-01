@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿function Home() {
   return (
     <div className="flex justify-center items-center w-full min-h-[calc(100vh-9rem)] bg-[#e0a98a]">
@@ -9,6 +10,11 @@
           <h2 className="text-5xl md:text-7xl font-extrabold text-teal-700 tracking-tight drop-shadow-sm">
             ConectaRH
           </h2>
+=======
+﻿import ListarColaboradores from "../../components/colaboradores/listarcolaboradores/ListarColaboradores"
+import ModalColaborador from "../../components/colaboradores/modalcolaboradores/ModalColaborador"
+import Sobre from "../../components/sobre/Sobre"
+>>>>>>> Stashed changes
 
           <p className="text-lg md:text-2xl text-stone-700/90 max-w-md">
             Mais do que RH, somos conexão humana!
@@ -34,8 +40,27 @@
     
     </div>
 
+<<<<<<< Updated upstream
     
   )
+=======
+					<div className="flex items-center justify-center">
+						<img
+							src="https://ik.imagekit.io/vzr6ryejm/games/home.png"
+							alt="Imagem Página Home"
+							className="w-2/3 max-w-xs md:max-w-md lg:max-w-lg"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<div className="py-2 md:py-0 md:mb-4">
+				<ListarColaboradores />
+			</div>
+
+		</>
+	)
+>>>>>>> Stashed changes
 }
 
 export default Home
