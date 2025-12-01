@@ -150,44 +150,6 @@ O projeto é organizado da seguinte forma:
 └── .gitignore
 
 
-
-
-
-
-
-
-
-
-|-- public/ # Arquivos estáticos
-|-- src/ # Código fonte da aplicação
-|   |-- components/ # Componentes reutilizáveis
-|   |   |-- apolice/ # Componentes específicos de apólices
-|   |   |-- categoria/ # Componentes específicos de categorias
-|   |   |-- footer/
-|   |   `-- navbar/
-|   |-- models/ # Definições de tipos (TypeScript)
-|   |   |-- Apolice.ts
-|   |   |-- Categoria.ts
-|   |   `-- Usuario.ts
-|   |-- pages/ # Páginas da aplicação
-|   |   |-- apolice/
-|   |   |-- cadastro/
-|   |   |-- categoria/
-|   |   |-- home/
-|   |   `-- sobrenos/
-|   |-- services/ # Lógica de comunicação com a API
-|   |   `-- Service.ts
-|   |-- utils/ # Funções utilitárias
-|   |   `-- ToastAlerta.ts
-|   |-- App.tsx # Componente principal
-|   |-- index.css # Estilos globais
-|   `-- main.tsx # Ponto de entrada da aplicação
-|-- .gitignore
-|-- index.html
-|-- package.json
-|-- README.md
-`-- vite.config.ts
-
 ## 🚀 6. Configuração e Execução
 
 ```bash
