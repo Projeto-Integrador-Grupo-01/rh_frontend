@@ -39,10 +39,6 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
                             <BuildingsIcon size={18} />
                             Departamentos
                         </Link>
-                        <Link to="/calculadora" className={`hover:text-teal-700 transition flex items-center gap-1 ${isActive("/calculadora")}`}>
-                            <CalculatorIcon size={18} />
-                            Cálculo de Salário
-                        </Link>
                     </div>
 
                     {menuState === "closed" && (
