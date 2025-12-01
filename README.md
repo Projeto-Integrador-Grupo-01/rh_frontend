@@ -149,6 +149,8 @@ O projeto é organizado da seguinte forma:
 ├── README.md
 └── .gitignore
 
+````
+---
 
 ## 🚀 6. Configuração e Execução
 
