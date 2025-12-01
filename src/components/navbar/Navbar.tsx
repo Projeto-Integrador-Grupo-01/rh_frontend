@@ -15,7 +15,7 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
 
     const isActive = (path: string) =>
         location.pathname === path
-            ? "text-blue-600 relative px-3 py-2 after:content-[''] after:absolute after:inset-0 after:bg-blue-500/10 after:rounded-xl after:-z-10"
+            ? "text-teal-700 relative px-3 py-2 after:content-[''] after:absolute after:inset-0 after:bg-teal-700/10 after:rounded-xl after:-z-10"
             : "text-gray-700";
 
     return (

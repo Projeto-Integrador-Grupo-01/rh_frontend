@@ -57,11 +57,11 @@ function Calculo() {
   }
 
   return (
-    <div className="container mx-auto px-6 pt-24 pb-10 md:pt-28 flex flex-col items-center">
+    <div className="container mx-auto px-6 pt-8 pb-10 md:pt-28 flex flex-col items-center">
 
       {/* ⬇️ Título com nome, fallback enquanto carrega */}
       <h1 className="text-3xl md:text-4xl text-center mb-8 font-semibold">
-        {colaborador ? `Calcular Salário de ${colaborador.nome}` : "Carregando..."}
+        {colaborador ? `Calcular Salário de ${colaborador.nome}` : "Calcular salário"}
       </h1>
 
       <form
@@ -127,7 +127,7 @@ function Calculo() {
           <button
             type="submit"
             disabled={isLoading}
-            className="px-6 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition flex items-center justify-center"
+            className="px-6 py-2 rounded-lg bg-teal-700 text-white font-medium hover:bg-teal-900 transition flex items-center justify-center"
           >
             {isLoading ? <ClipLoader size={22} color="#fff" /> : "Calcular"}
           </button>

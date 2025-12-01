@@ -42,7 +42,7 @@ function ListarDepartamentos() {
 						</div>
 						<Link
 							to="/caddepartamento"
-							className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-sm flex items-center gap-2"
+							className="px-4 py-2 bg-teal-700 text-white rounded-md hover:bg-teal-900 transition-colors shadow-sm flex items-center gap-2"
 						>
 							<span className="text-lg">+</span> Adicionar Departamento
 						</Link>
@@ -55,7 +55,7 @@ function ListarDepartamentos() {
 					{!isLoading && departamentos.length > 0 && (
 						<div className="overflow-x-auto shadow-md rounded-lg border border-gray-200">
 							<table className="w-full text-left border-collapse">
-								<thead className="bg-slate-800 text-white">
+								<thead className="bg-teal-700 text-white">
 									<tr>
 										<th className="p-4 font-semibold">Nome</th>
 										<th className="p-4 text-center font-semibold">Ações</th>
@@ -66,7 +66,7 @@ function ListarDepartamentos() {
 									{departamentos.map((col) => (
 										<tr
 											key={col.id}
-											className="border-b hover:bg-gray-50 transition-colors"
+											className="border-b border-gray-200 hover:bg-gray-50 transition-colors"
 										>
 											<td className="p-4">{col.nome}</td>
 											<td className="p-4">
@@ -75,7 +75,7 @@ function ListarDepartamentos() {
 													<Link to={`/editardepartamento/${col.id}`}>
 														<PencilSimpleIcon
 															size={20}
-															className="hover:text-blue-600 transition-colors"
+															className="hover:text-teal-700 transition-colors"
 														/>
 													</Link>
 													<Link to={`/deletardepartamento/${col.id}`}>

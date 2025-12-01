@@ -41,7 +41,7 @@ function ListarColaboradores() {
 						</div>
 						<Link
 							to="/cadcolaborador"
-							className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-sm flex items-center gap-2"
+							className="px-4 py-2 bg-teal-700 text-white rounded-md hover:bg-teal-900 transition-colors shadow-sm flex items-center gap-2"
 						>
 							<span className="text-lg">+</span> Adicionar Colaborador
 						</Link>
@@ -54,7 +54,7 @@ function ListarColaboradores() {
 					{!isLoading && colaboradores.length > 0 && (
 						<div className="overflow-x-auto shadow-md rounded-lg border border-gray-200">
 							<table className="w-full text-left border-collapse">
-								<thead className="bg-slate-800 text-white">
+								<thead className="bg-teal-700 text-white">
 									<tr>
 										<th className="p-4 font-semibold">Nome</th>
 										<th className="p-4 font-semibold">Departamento</th>
@@ -68,7 +68,7 @@ function ListarColaboradores() {
 									{colaboradores.map((col) => (
 										<tr
 											key={col.id}
-											className="border-b hover:bg-gray-50 transition-colors"
+											className="border-b hover:bg-gray-50 transition-colors border-gray-200"
 										>
 											<td className="p-4">{col.nome}</td>
 
@@ -90,21 +90,21 @@ function ListarColaboradores() {
 													<Link to={`/colaborador/${col.id}`}>
 														<EyeIcon
 															size={20}
-															className="hover:text-blue-600 transition-colors"
+															className="hover:text-teal-700 transition-colors"
 														/>
 													</Link>
 
 														<Link to={`/calcularsalario/${col.id}`}>
 														<CalculatorIcon
 															size={20}
-															className="hover:text-blue-600 transition-colors"
+															className="hover:text-teal-700 transition-colors"
 														/>
 													</Link>
 
 													<Link to={`/editarcolaborador/${col.id}`}>
 														<PencilSimpleIcon
 															size={20}
-															className="hover:text-blue-600 transition-colors"
+															className="hover:text-teal-700 transition-colors"
 														/>
 													</Link>
 
