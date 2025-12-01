@@ -23,25 +23,25 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
             <div className="fixed top-0 left-0 z-50 w-full bg-white border-b border-gray-200/70 shadow-sm">
                 <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-10">
                     <Link to="/home" className="flex items-center gap-2">
-                        <div className="bg-blue-500 text-white rounded-xl p-2 flex items-center justify-center">
+                        <div className="bg-teal-700 text-white rounded-xl p-2 flex items-center justify-center">
                             <UsersIcon size={20} weight="bold" />
                         </div>
-                        <span className="text-xl tracking-tight text-gray-800">ConectaRH</span>
+                        <span className="text-xl tracking-tight text-teal-700">ConectaRH</span>
                     </Link>
                     
                     <div className="hidden md:flex items-center gap-10 text-[15px]">
-                        <Link to="/home" className={`hover:text-blue-600 transition ${isActive("/home")}`}>
+                        <Link to="/home" className={`hover:text-teal-700 transition ${isActive("/home")}`}>
                             Ínicio
                         </Link>
-                        <Link to="/colaboradores" className={`hover:text-blue-600 transition flex items-center gap-1 ${isActive("/colaboradores")}`}>
+                        <Link to="/colaboradores" className={`hover:text-teal-700 transition flex items-center gap-1 ${isActive("/colaboradores")}`}>
                             <UsersIcon size={18} />
                             Colaboradores
                         </Link>
-                        <Link to="/departamentos" className={`hover:text-blue-600 transition flex items-center gap-1 ${isActive("/departamentos")}`}>
+                        <Link to="/departamentos" className={`hover:text-teal-700 transition flex items-center gap-1 ${isActive("/departamentos")}`}>
                             <BuildingsIcon size={18} />
                             Departamentos
                         </Link>
-                        <Link to="/calculadora" className={`hover:text-blue-600 transition flex items-center gap-1 ${isActive("/calculadora")}`}>
+                        <Link to="/calculadora" className={`hover:text-teal-700 transition flex items-center gap-1 ${isActive("/calculadora")}`}>
                             <CalculatorIcon size={18} />
                             Cálculo de Salário
                         </Link>
