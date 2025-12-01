@@ -23,12 +23,10 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
             <div className="fixed top-0 left-0 z-50 w-full bg-white border-b border-gray-200/70 shadow-sm">
                 <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-10">
                     <Link to="/home" className="flex items-center gap-2">
-                        <div className="bg-teal-700 text-white rounded-xl p-2 flex items-center justify-center">
-                            <UsersIcon size={20} weight="bold" />
-                        </div>
+
                         <span className="text-xl tracking-tight text-teal-700">ConectaRH</span>
                     </Link>
-                    
+
                     <div className="hidden md:flex items-center gap-10 text-[15px]">
                         <Link to="/home" className={`hover:text-teal-700 transition ${isActive("/home")}`}>
                             Ínicio

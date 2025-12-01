@@ -1,5 +1,58 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import alineImg from "../../assets/aline.jpeg";
+import cintiaImg from "../../assets/cintia.jpeg";
+import nicollyImg from "../../assets/nicolly.jpeg";
+import rafaelaImg from "../../assets/rafaela.jpeg";
+import querenImg from "../../assets/queren.jpeg";
+
+
+
+type TeamMember = {
+    id: number;
+    name: string;
+    role: string;
+    linkedin: string;
+    photo: string;
+};
+
+const teamMembers: TeamMember[] = [
+    {
+        id: 1,
+        name: "Aline Romanini",
+        role: "Desenvolvedora",
+        linkedin: "https://www.linkedin.com/m/in/aline-romanini/",
+        photo: alineImg,
+    },
+    {
+        id: 2,
+        name: "Cintia Dourado",
+        role: "Desenvolvedora",
+        linkedin: "https://www.linkedin.com/in/cintia-douradom/",
+        photo: cintiaImg,
+    },
+    {
+        id: 3,
+        name: "Nicolly Jesus",
+        role: "Scrum Master",
+        linkedin: "https://www.linkedin.com/m/in/nicolly-jesus/",
+        photo: nicollyImg,
+    },
+    {
+        id: 4,
+        name: "Rafaela Lemes",
+        role: "Tester",
+        linkedin: "https://www.linkedin.com/in/rafamorais/",
+        photo: rafaelaImg,
+    },
+    {
+        id: 5,
+        name: "Queren Alves",
+        role: "Desenvolvedora",
+        linkedin: "https://www.linkedin.com/in/querenhalves/",
+        photo: querenImg,
+    },
+];
 
 const Sobre: React.FC = () => {
     return (
@@ -232,7 +285,45 @@ const Sobre: React.FC = () => {
                     </div>
                 </div>
 
+                {/* Equipe */}
+                <section className="mt-16">
+                    <h2 className="text-xl font-semibold text-slate-900 md:text-2xl text-center">
+                        Nossa equipe
+                    </h2>
+                    <p className="mt-2 text-sm md:text-[15px] text-slate-600 text-center max-w-2xl mx-auto">
+                        Conheça as pessoas por trás do ConectaRH, responsáveis por unir
+                        tecnologia e gestão de pessoas em um só lugar.
+                    </p>
 
+                    <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+                        {teamMembers.map((member) => (
+                            <div
+                                key={member.id}
+                                className="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col items-center text-center shadow-[0_12px_30px_rgba(15,23,42,0.05)]"
+                            >
+                                <img
+                                    src={member.photo}
+                                    alt={`Foto de ${member.name}`}
+                                    className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover mb-3"
+                                />
+                                <h3 className="text-sm font-semibold text-slate-900">
+                                    {member.name}
+                                </h3>
+                                <p className="text-xs text-slate-600 mb-3">
+                                    {member.role}
+                                </p>
+                                <a
+                                    href={member.linkedin}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="text-xs font-medium text-[#c97240] hover:underline"
+                                >
+                                    Ver perfil no LinkedIn
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                </section>
             </section>
         </main>
     );
