@@ -24,3 +24,8 @@ export const api = axios.create({
   export const deletar = async(url: string) => {
     await api.delete(url)
   }
+
+ export async function calcular(url: string, payload: any) {
+  const resposta = await api.post(url, payload);
+  return resposta.data;
+}

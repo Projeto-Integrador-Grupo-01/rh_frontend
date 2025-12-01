@@ -1,125 +1,154 @@
 ﻿import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+
 import type Departamento from "../../../models/Departamento";
 import { atualizar, cadastrar, listar } from "../../../services/Service";
 
 function FormDepartamento() {
-
   const navigate = useNavigate();
 
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [departamento, setDepartamento] = useState<Departamento>({} as Departamento);
 
   const { id } = useParams<{ id: string }>();
 
   async function buscarPorId(id: string) {
     try {
-      await listar(`/departamentos/${id}`, setDepartamento)
+      await listar(`/departamentos/${id}`, setDepartamento);
     } catch (error: any) {
-      alert('Departamento não encontrado.')
-      console.error(error)
+      alert("Departamento não encontrado.");
+      console.error(error);
       retornar();
     }
   }
 
   useEffect(() => {
     if (id !== undefined) {
-      buscarPorId(id)
+      buscarPorId(id);
     }
-  }, [id])
+  }, [id]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setDepartamento({
       ...departamento,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
   }
 
   async function gerarNovoDepartamento(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
 
-    if (id !== undefined) {
-      try {
-        await atualizar(`/departamentos`, departamento, setDepartamento)
-
-        alert('Departamento atualizado com sucesso')
-
-      } catch (error: any) {
-        alert('Erro ao atualizar o Departamento')
-        console.error(error)
+    try {
+      if (id !== undefined) {
+        await atualizar(`/departamentos`, departamento, setDepartamento);
+        alert("Departamento atualizado com sucesso");
+      } else {
+        await cadastrar(`/departamentos`, departamento, setDepartamento);
+        alert("Departamento cadastrado com sucesso");
       }
-
-    } else {
-      try {
-        await cadastrar(`/departamentos`, departamento, setDepartamento)
-
-        alert('Departamento cadastrado com sucesso')
-
-      } catch (error: any) {
-        alert('Erro ao cadastrar o Departamento')
-        console.error(error)
-      }
+    } catch (error: any) {
+      alert("Ocorreu um erro ao salvar o departamento.");
+      console.error(error);
     }
 
-    setIsLoading(false)
+    setIsLoading(false);
     retornar();
-
   }
 
   function retornar() {
-    navigate("/departamentos")
+    navigate("/departamentos");
   }
 
   return (
-    <div className="container flex flex-col items-center justify-center px-2 pt-4 mx-auto">
-      <h1 className="my-8 text-3xl text-center md:text-4xl">
-        {id === undefined ? 'Cadastrar Departamento' : 'Editar Departamento'}
+    <div
+      className="
+        container mx-auto px-6 
+        pt-24 pb-10
+        md:pt-28
+        flex flex-col items-center
+      "
+    >
+      <h1 className="text-3xl md:text-4xl text-center mb-8 font-semibold">
+        {id === undefined ? "Cadastrar Departamento" : "Editar Departamento"}
       </h1>
 
-      <form className="flex flex-col w-full max-w-md gap-4 px-2 md:max-w-1/2"
+      <form
+        className="
+          w-full max-w-3xl bg-white p-8 rounded-xl shadow-md 
+          flex flex-col gap-6
+        "
         onSubmit={gerarNovoDepartamento}
       >
-        <div className="flex flex-col gap-2 ">
-          <label htmlFor="nome">Departamento</label>
+        {/* Nome */}
+        <div className="flex flex-col gap-1">
+          <label htmlFor="nome" className="font-medium text-sm text-gray-700">
+            Nome do Departamento *
+          </label>
           <input
             type="text"
-            placeholder="Departamento"
-            id='nome'
-            name='nome'
-            className="p-2 text-base bg-white border-2 rounded border-slate-700 utral-800 md:text-lg"
+            id="nome"
+            name="nome"
+            placeholder="Ex: Recursos Humanos"
             required
+            className="
+              border border-gray-300 rounded-lg p-3 bg-white text-base
+              focus:outline-none focus:ring-2 focus:ring-blue-500
+            "
             value={departamento.nome}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            onChange={atualizarEstado}
           />
         </div>
-        <div className="flex flex-col gap-2">
-					<label htmlFor="icone" className="font-medium">Icone do Departamento</label>
-					<input
-						value={departamento.icone}
-						onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-						type="text"
-						placeholder="Adicione aqui a URL do icone do Departamento"
-						name="icone"
-						id="icone"
-						required
-						className="border-2 border-slate-700 rounded p-2 bg-white text-base focus:outline-none focus:ring-2 focus:ring-slate-500"
-					/>
-				</div>
-        <button
-          className="flex justify-center w-full py-2 mx-auto text-base rounded text-slate-100 bg-slate-400 hover:bg-slate-800 md:w-1/2 md:text-lg"
-          type="submit"
-        >
-          {isLoading ?
-            <ClipLoader
-            color="#ffffff"
-            size={24}
+
+        {/* Ícone */}
+        <div className="flex flex-col gap-1">
+          <label htmlFor="icone" className="font-medium text-sm text-gray-700">
+            Ícone (URL)
+          </label>
+          <input
+            type="text"
+            id="icone"
+            name="icone"
+            placeholder="https://link-do-icone.png"
+            required
+            value={departamento.icone}
+            onChange={atualizarEstado}
+            className="
+              border border-gray-300 rounded-lg p-3 bg-white text-base
+              focus:outline-none focus:ring-2 focus:ring-blue-500
+            "
           />
-            :
-            <span>{id === undefined ? 'Cadastrar' : 'Atualizar'}</span>
-          }
-        </button>
+        </div>
+
+        {/* Botões */}
+        <div className="flex justify-end gap-4 mt-4">
+          <button
+            type="button"
+            onClick={() => window.history.back()}
+            className="
+              px-6 py-2 rounded-lg border border-gray-300 text-gray-700
+              hover:bg-gray-100 transition
+            "
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="
+              px-6 py-2 rounded-lg bg-blue-600 text-white font-medium
+              hover:bg-blue-700 transition flex items-center justify-center
+            "
+          >
+            {isLoading ? (
+              <ClipLoader color="#ffffff" size={22} />
+            ) : (
+              <span>{id === undefined ? "Cadastrar" : "Salvar"}</span>
+            )}
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -50,35 +50,43 @@ function DeletarDepartamento() {
     }
 
     return (
-        <div className='container w-full max-w-md px-4 pt-4 mx-auto md:pt-6'>
-            <h1 className='py-4 text-3xl text-center md:text-4xl'>Deletar Departamento</h1>
-            <p className='mb-4 text-base font-semibold text-center md:text-lg'>
-                Você tem certeza de que deseja apagar o departamento a seguir?</p>
-            <div className='flex flex-col justify-between overflow-hidden border rounded-2xl'>
-                <header
-                    className='px-4 py-2 text-lg font-bold text-white md:px-6 bg-slate-600 md:text-2xl'>
-                    Departamento
-                </header>
-                <p className='h-full p-4 text-xl bg-white md:p-8 md:text-3xl'>{departamento.nome}</p>
-                <div className="flex flex-row">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50">
+            <div className='bg-white rounded-lg shadow-lg w-full max-w-md mx-4 p-6'>
+                <div className="flex items-start gap-4 mb-4">
+                    <div className="shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                        <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                        </svg>
+                    </div>
+                    <div className="mt-1">
+                        <h3 className="text-lg font-bold leading-6 text-gray-900" id="modal-title">
+                            Deletar Departamento
+                        </h3>
+                        <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                                Você tem certeza de que deseja apagar o departamento <strong>{departamento.nome}</strong>? Esta ação não pode ser desfeita.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse gap-3">
                     <button
-                        className='w-full py-2 text-base bg-red-400 text-slate-100 hover:bg-red-600 md:text-lg'
-                        onClick={retornar}
-                    >
-                        Não
-                    </button>
-                    <button
-                        className='flex items-center justify-center w-full text-base bg-teal-600 text-slate-100 hover:bg-teal-700 md:text-lg'
+                        type="button"
+                        className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:w-auto"
                         onClick={deletarDepartamento}
                     >
-                        {isLoading ?
-                            <ClipLoader
-                            color="#ffffff"
-                            size={24}
-                          />
-                            :
-                            <span>Sim</span>
-                        }
+                        {isLoading ? (
+                            <ClipLoader color="#ffffff" size={20} />
+                        ) : (
+                            <span>Excluir</span>
+                        )}
+                    </button>
+                    <button
+                        type="button"
+                        className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                        onClick={retornar}
+                    >
+                        Cancelar
                     </button>
                 </div>
             </div>

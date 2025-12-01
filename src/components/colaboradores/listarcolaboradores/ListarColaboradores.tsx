@@ -2,7 +2,7 @@
 import { RingLoader } from "react-spinners"
 import { listar } from "../../../services/Service"
 import type Colaborador from "../../../models/Colaborador"
-import { EyeIcon, PencilSimpleIcon, TrashSimpleIcon } from "@phosphor-icons/react"
+import { CalculatorIcon, EyeIcon, PencilSimpleIcon, TrashSimpleIcon } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
 
 function ListarColaboradores() {
@@ -21,7 +21,6 @@ function ListarColaboradores() {
 
 	return (
 		<>
-			{/* LOADING */}
 			{isLoading && (
 				<RingLoader
 					color="#0D9488"
@@ -33,8 +32,6 @@ function ListarColaboradores() {
 
 			<div className="flex justify-center w-full min-h-[calc(100vh-8rem)] overflow-x-hidden">
 				<div className="box-border w-full px-6 mt-10 max-w-6xl lg:px-12">
-
-					{/* TÍTULO + BOTÃO */}
 					<div className="flex items-center justify-between mb-8">
 						<div>
 							<h1 className="text-3xl font-bold text-slate-900">Colaboradores</h1>
@@ -42,7 +39,6 @@ function ListarColaboradores() {
 								Gerencie as informações do funcionário
 							</p>
 						</div>
-
 						<Link
 							to="/cadcolaborador"
 							className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-sm flex items-center gap-2"
@@ -50,15 +46,11 @@ function ListarColaboradores() {
 							<span className="text-lg">+</span> Adicionar Colaborador
 						</Link>
 					</div>
-
-					{/* Nenhum colaborador */}
 					{!isLoading && colaboradores.length === 0 && (
 						<div className="my-16 text-2xl text-center text-slate-700">
 							Nenhum colaborador foi encontrado
 						</div>
 					)}
-
-					{/* TABELA */}
 					{!isLoading && colaboradores.length > 0 && (
 						<div className="overflow-x-auto shadow-md rounded-lg border border-gray-200">
 							<table className="w-full text-left border-collapse">
@@ -102,12 +94,20 @@ function ListarColaboradores() {
 														/>
 													</Link>
 
+														<Link to={`/calcularsalario/${col.id}`}>
+														<CalculatorIcon
+															size={20}
+															className="hover:text-blue-600 transition-colors"
+														/>
+													</Link>
+
 													<Link to={`/editarcolaborador/${col.id}`}>
 														<PencilSimpleIcon
 															size={20}
 															className="hover:text-blue-600 transition-colors"
 														/>
 													</Link>
+
 
 													<Link to={`/deletarcolaborador/${col.id}`}>
 														<TrashSimpleIcon

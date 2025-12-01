@@ -114,9 +114,13 @@ function FormColaborador() {
 
 	return (
 		<div
-			className={`container flex flex-col items-center justify-center mx-auto my-4 
-		md:my-0 md:h-[81vh] px-6 py-10`}
-		>
+	className="
+		container mx-auto px-6 
+		pt-8 pb-10
+		md:pt-8
+		flex flex-col items-center
+	"
+>
 			<h1 className="text-3xl md:text-4xl text-center mb-8 font-semibold">
 				{id !== undefined ? "Editar Colaborador" : "Cadastrar Colaborador"}
 			</h1>

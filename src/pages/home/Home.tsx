@@ -1,5 +1,6 @@
-﻿import ListarColaboradores from "../../components/colaboradores/listarcolaboradores/ListarColaboradores"
+﻿import About from "../../components/about/About"
 import ModalColaborador from "../../components/colaboradores/modalcolaboradores/ModalColaborador"
+import QuickAccess from "../../components/quickacess/QuickAcess"
 
 
 function Home() {
@@ -28,9 +29,8 @@ function Home() {
 				</div>
 			</div>
 
-			<div className="py-2 md:py-0 md:mb-4">
-				<ListarColaboradores />
-			</div>
+			<QuickAccess />
+			<About />
 		</>
 	)
 }

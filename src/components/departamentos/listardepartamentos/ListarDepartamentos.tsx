@@ -2,7 +2,8 @@
 import { RingLoader } from "react-spinners"
 import type Departamento from "../../../models/Departamento"
 import { listar } from "../../../services/Service"
-import CardDepartamentos from "../carddepartamentos/CardDepartamentos"
+import { Link } from "react-router-dom"
+import { PencilSimpleIcon, TrashSimpleIcon } from "@phosphor-icons/react"
 
 function ListarDepartamentos() {
 	const [isLoading, setIsLoading] = useState(true)
@@ -31,18 +32,66 @@ function ListarDepartamentos() {
 			)}
 
 			<div className="flex justify-center w-full min-h-[calc(100vh-8rem)] overflow-x-hidden">
-				<div className="box-border w-full px-4 py-4 mt-8 mb-4 max-w-8xl sm:px-6 md:px-8 lg:px-12 md:py-6">
+				<div className="box-border w-full px-6 mt-10 max-w-6xl lg:px-12">
+					<div className="flex items-center justify-between mb-8">
+						<div>
+							<h1 className="text-3xl font-bold text-slate-900">Departamentos</h1>
+							<p className="text-slate-500 mt-1">
+								Gerencie as informações do departamento
+							</p>
+						</div>
+						<Link
+							to="/caddepartamento"
+							className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-sm flex items-center gap-2"
+						>
+							<span className="text-lg">+</span> Adicionar Departamento
+						</Link>
+					</div>
 					{!isLoading && departamentos.length === 0 && (
-						<div className="my-8 text-2xl text-center md:text-3xl text-slate-700 md:my-16">
+						<div className="my-16 text-2xl text-center text-slate-700">
 							Nenhum departamento foi encontrado
 						</div>
 					)}
+					{!isLoading && departamentos.length > 0 && (
+						<div className="overflow-x-auto shadow-md rounded-lg border border-gray-200">
+							<table className="w-full text-left border-collapse">
+								<thead className="bg-slate-800 text-white">
+									<tr>
+										<th className="p-4 font-semibold">Nome</th>
+										<th className="p-4 text-center font-semibold">Ações</th>
+									</tr>
+								</thead>
 
-					<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6 mb-4 md:mb-0">
-						{departamentos.map((departamento) => (
-							<CardDepartamentos key={departamento.id} departamento={departamento} />
-						))}
-					</div>
+								<tbody className="bg-white">
+									{departamentos.map((col) => (
+										<tr
+											key={col.id}
+											className="border-b hover:bg-gray-50 transition-colors"
+										>
+											<td className="p-4">{col.nome}</td>
+											<td className="p-4">
+												<div className="flex justify-center gap-4 text-slate-600">
+
+													<Link to={`/editardepartamento/${col.id}`}>
+														<PencilSimpleIcon
+															size={20}
+															className="hover:text-blue-600 transition-colors"
+														/>
+													</Link>
+													<Link to={`/deletardepartamento/${col.id}`}>
+														<TrashSimpleIcon
+															size={20}
+															className="hover:text-red-600 transition-colors"
+														/>
+													</Link>
+												</div>
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+					)}
 				</div>
 			</div>
 		</>

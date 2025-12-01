@@ -88,7 +88,7 @@ export default function DetalhesColaborador({ colaborador }: Readonly<CardColabo
                 {/* CARD DIREITO */}
                 <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
                     <h2 className="text-lg font-semibold text-slate-800 mb-6">
-                        Bônus
+                        Salário Base
                     </h2>
 
                     <div className="space-y-4 text-slate-700">
@@ -102,24 +102,6 @@ export default function DetalhesColaborador({ colaborador }: Readonly<CardColabo
                                 }).format(colaborador.salario)}
                             </p>
                         </div>
-
-                        <div>
-                            <p className="text-sm font-medium text-slate-500">Benefícios</p>
-                            <p className="text-xl font-medium">R$ 0,00</p>
-                        </div>
-
-                        <hr className="my-4" />
-
-                        <div>
-                            <p className="text-sm font-medium text-slate-500">Total</p>
-                            <p className="text-2xl font-bold text-teal-600">
-                                {Intl.NumberFormat("pt-BR", {
-                                    style: "currency",
-                                    currency: "BRL",
-                                }).format(colaborador.salario)}
-                            </p>
-                        </div>
-
                     </div>
                 </div>
 
